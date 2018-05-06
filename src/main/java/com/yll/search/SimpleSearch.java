@@ -1,6 +1,13 @@
 package main.java.com.yll.search;
 
+import main.java.com.yll.search.proxy.log.PrintLog;
+
+/**
+ * 顺序查找
+ */
 public class SimpleSearch implements ISearch {
+
+    @PrintLog(id = 1, desc = "SimpleSearch")
     @Override
     public int find(int[] a, int key) {
         int index = -1;
@@ -12,4 +19,6 @@ public class SimpleSearch implements ISearch {
         }
         return index;
     }
+
+
 }

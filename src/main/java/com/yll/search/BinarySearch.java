@@ -1,6 +1,12 @@
 package main.java.com.yll.search;
 
+import main.java.com.yll.search.proxy.log.PrintLog;
+
+/**
+ * 折半查找
+ */
 public class BinarySearch implements ISearch {
+    @PrintLog(id = 2, desc = "BinarySearch")
     @Override
     public int find(int[] a, int key) {
         int index = -1;
