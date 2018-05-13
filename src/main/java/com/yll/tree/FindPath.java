@@ -16,8 +16,8 @@ public class FindPath {
         ArrayList<Integer> path = new ArrayList<Integer>();
         ArrayList<ArrayList<Integer>> paths = new ArrayList<ArrayList<Integer>>();
         stack.push(root);
-        int sum = root.val;
-        path.add(root.val);
+        int sum = root.value;
+        path.add(root.value);
         TreeNode preNode = null;
         while (!stack.isEmpty()) {
             TreeNode top = stack.peek();
@@ -26,14 +26,14 @@ public class FindPath {
                     paths.add(new ArrayList<Integer>(path));
                 }
 
-                sum -= stack.peek().val;
+                sum -= stack.peek().value;
                 path.remove(path.size() - 1);
                 preNode = stack.peek();
                 stack.pop();
             }else{
 
                 if ((top.right != null && preNode == top.right) || (top.right == null && preNode == top.left)) {//top已处理完毕
-                    sum -= stack.peek().val;
+                    sum -= stack.peek().value;
                     path.remove(path.size() - 1);
                     preNode = stack.peek();
                     stack.pop();
@@ -47,8 +47,8 @@ public class FindPath {
 
                     if (toVisitNode != null) {
                         stack.push(toVisitNode);
-                        sum += toVisitNode.val;
-                        path.add(toVisitNode.val);
+                        sum += toVisitNode.value;
+                        path.add(toVisitNode.value);
                     }
                 }
             }
@@ -64,9 +64,9 @@ public class FindPath {
         ArrayList<ArrayList<Integer>> paths = new ArrayList<ArrayList<Integer>>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
-        int sum = root.val;
+        int sum = root.value;
         ArrayList<Integer> path = new ArrayList<Integer>();
-        path.add(root.val);
+        path.add(root.value);
         TreeNode preNode = null;
         while (!stack.isEmpty()) {
             TreeNode top = stack.peek();
@@ -75,7 +75,7 @@ public class FindPath {
                     paths.add(new ArrayList<Integer>(path));
                 }
 
-                sum -= stack.peek().val;
+                sum -= stack.peek().value;
                 path.remove(path.size() - 1);
                 preNode = stack.peek();
                 stack.pop();
@@ -84,7 +84,7 @@ public class FindPath {
                 if(top.left!=null)
                 //判断top是否处理完毕（右孩子已访问）
                 if (preNode == top.right) {//处理过
-                    sum -= stack.peek().val;
+                    sum -= stack.peek().value;
                     path.remove(path.size() - 1);
                     preNode = stack.peek();
                     stack.pop();
@@ -96,8 +96,8 @@ public class FindPath {
                     if (preNode != top.left) {
                         while (p.left != null) {
                             stack.push(p.left);
-                            sum += p.left.val;
-                            path.add(p.left.val);
+                            sum += p.left.value;
+                            path.add(p.left.value);
                             p = p.left;
                         }
                     }
@@ -108,10 +108,10 @@ public class FindPath {
 
                     if (p.right != null) {//p有右孩子，访问右孩子
                         stack.push(p.right);
-                        sum += p.right.val;
-                        path.add(p.right.val);
+                        sum += p.right.value;
+                        path.add(p.right.value);
                     } else {//p没有右孩子，则处理完毕
-                        sum -= stack.peek().val;
+                        sum -= stack.peek().value;
                         path.remove(path.size() - 1);
                         preNode = stack.peek();
                         stack.pop();
